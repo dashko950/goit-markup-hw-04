@@ -468,7 +468,7 @@ img {
 
 .footer-social-link:hover,
 .footer-social-link:focus {
-  background-color: var(--success);
+  background-color: #4d5ae5;
 }
 
 .footer-social-icon {
