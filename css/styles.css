@@ -59,7 +59,7 @@ p {
   text-decoration: none;
 }
 
-/* Images */
+/* Images - display: block для всіх зображень */
 img {
   display: block;
   max-width: 100%;
@@ -71,7 +71,6 @@ img {
   width: 1158px;
   margin: 0 auto;
   padding: 0 15px;
-  display: flex;
 }
 
 /* Section */
@@ -160,24 +159,22 @@ img {
   color: var(--pressed-state);
 }
 
-/* Активный первый пункт меню с подчеркиванием */
-.nav-list .nav-item:first-child .nav-link {
-  position: relative;
+.nav-link.current {
   color: var(--pressed-state);
+  position: relative;
 }
 
-.nav-list .nav-item:first-child .nav-link::after {
+.nav-link.current::after {
   content: "";
-  width: 100%;
   position: absolute;
   left: 0;
   bottom: -1px;
+  width: 100%;
   height: 4px;
   background-color: var(--pressed-state);
   border-radius: 2px;
 }
 
-/* Contacts / Address */
 .address {
   font-style: normal;
 }
@@ -193,6 +190,9 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -261,21 +261,15 @@ img {
   flex-basis: calc((100% - 72px) / 4);
 }
 
-.features-icon-container {
+.features-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 112px;
   background-color: var(--light);
   border-radius: 4px;
-  border: 1px solid var(--subtle-text);
   margin-bottom: 8px;
-}
-
-.features-icon {
-  width: 64px;
-  height: 64px;
-  fill: var(--light);
+  border: 1px solid var(--subtle-text);
 }
 
 /* Team section */
@@ -286,6 +280,7 @@ img {
 .team-list {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
 .team-item {
@@ -294,6 +289,7 @@ img {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   flex-basis: calc((100% - 72px) / 4);
+  overflow: hidden;
 }
 
 .team-img {
@@ -310,38 +306,38 @@ img {
   margin-bottom: 8px;
 }
 
-.team-social-list {
+.social-list {
   display: flex;
   justify-content: center;
   gap: 24px;
   margin-top: 8px;
 }
 
-.team-social-item {
+.social-item {
   width: 40px;
   height: 40px;
 }
 
-.team-social-link {
+.social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: #4d5ae5;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-brand);
   border-radius: 50%;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-social-link:hover,
-.team-social-link:focus {
-  background-color: #404bbf; /
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--pressed-state);
 }
 
-.team-social-icon {
+.social-icon {
+  fill: var(--light);
   width: 16px;
   height: 16px;
-  fill: #f4f4fd;
 }
 
 /* Portfolio section */
@@ -362,20 +358,14 @@ img {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-img {
-  width: 100%;
-  height: auto;
-}
-
-.portfolio-card-content {
-  padding: 32px 16px;
-  border: 1px solid var(--accent);
-  border-top: none;
-}
-
 .portfolio-image-wrapper {
   position: relative;
   overflow: hidden;
+}
+
+.portfolio-img {
+  width: 100%;
+  height: auto;
 }
 
 .portfolio-overlay-text {
@@ -396,6 +386,12 @@ img {
 
 .portfolio-item:hover .portfolio-overlay-text {
   transform: translateY(0%);
+}
+
+.portfolio-card-content {
+  padding: 32px 16px;
+  border: 1px solid var(--accent);
+  border-top: none;
 }
 
 /* Footer */
@@ -437,16 +433,16 @@ img {
 }
 
 .footer-social {
-  margin-right: 80px;
+  margin-left: 120px;
 }
 
 .footer-social-text {
   color: var(--white);
   font-weight: 500;
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  margin-bottom: 16px;
 }
 
 .footer-social-list {
@@ -465,7 +461,7 @@ img {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: var(--primary-brand);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -476,9 +472,9 @@ img {
 }
 
 .footer-social-icon {
+  fill: var(--light);
   width: 24px;
   height: 24px;
-  fill: var(--light);
 }
 
 /* Focus styles */
@@ -486,4 +482,9 @@ button:focus,
 a:focus {
   outline: 2px solid var(--primary-brand);
   outline-offset: 2px;
+}
+
+/* Icon styles */
+.icon {
+  fill: var(--light);
 }
