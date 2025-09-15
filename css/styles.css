@@ -461,7 +461,7 @@ img {
   background-color: #31d0aa;
 }
 .footer-social-link:focus {
-  background-color: var(--pressed-state); /* фон при наведении/фокусе */
+  background-color: #31d0aa;
 }
 
 .footer-social-icon {
